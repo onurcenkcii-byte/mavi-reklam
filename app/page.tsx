@@ -189,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* KATEGORİ FİLTRESİ — tek satırda, kaydırmasız, ikon+yazı kutucuk */}
-      <section className="px-4 pt-6 pb-2">
+      <section className="px-4 pt-1 pb-2">
         <div className="grid grid-cols-5 gap-1.5">
           {categories.map((cat) => {
             const active = activeCategory === cat;
