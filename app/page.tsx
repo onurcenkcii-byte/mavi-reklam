@@ -152,7 +152,7 @@ export default function Home() {
       </header>
 
       {/* KAYAN GÖRSEL ALANI — dikdörtgen, 2:1 oran */}
-      <section className="px-5 pt-1">
+      <section className="px-4 pt-1">
         <div
           className="relative w-full rounded-3xl overflow-hidden border border-cyan-400/20 bg-[#0d0d0d]"
           style={{ aspectRatio: "2 / 1" }}
