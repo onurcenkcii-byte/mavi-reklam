@@ -136,7 +136,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white pb-24">
       {/* HEADER */}
-      <header className="text-center px-5 py-6 border-b border-white/10">
+      <header className="text-center px-5 py-3 ">
         <div className="flex items-center justify-center gap-2">
           <img
 
@@ -152,7 +152,7 @@ export default function Home() {
       </header>
 
       {/* KAYAN GÖRSEL ALANI — dikdörtgen, 2:1 oran */}
-      <section className="px-5 pt-5">
+      <section className="px-5 pt-1">
         <div
           className="relative w-full rounded-3xl overflow-hidden border border-cyan-400/20 bg-[#0d0d0d]"
           style={{ aspectRatio: "2 / 1" }}
