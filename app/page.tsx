@@ -139,11 +139,12 @@ export default function Home() {
       <header className="text-center px-5 py-6 border-b border-white/10">
         <div className="flex items-center justify-center gap-2">
           <img
+
   src="/logo.svg"
   alt="Mavi Reklam"
-  width={28}
-  height={28}
-  className="w-7 h-7 object-contain"
+  width={200}
+  height={64}
+  className="w-44 h-auto object-contain"
 />
          
         </div>
