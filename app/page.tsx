@@ -138,12 +138,16 @@ export default function Home() {
       {/* HEADER */}
       <header className="text-center px-5 py-6 border-b border-white/10">
         <div className="flex items-center justify-center gap-2">
-          <LogoMark />
-          <h1 className="text-2xl font-extrabold tracking-wide">
-            MAVİ <span className="text-cyan-400">REKLAM</span>
-          </h1>
+          <img
+  src="/logo.svg"
+  alt="Mavi Reklam"
+  width={28}
+  height={28}
+  className="w-7 h-7 object-contain"
+/>
+         
         </div>
-        <p className="mt-2 text-[11px] tracking-[0.25em] text-gray-500">TASARIM · ÜRETİM · KALİTE</p>
+        
       </header>
 
       {/* KAYAN GÖRSEL ALANI — dikdörtgen, 2:1 oran */}
