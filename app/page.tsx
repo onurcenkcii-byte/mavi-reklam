@@ -228,25 +228,27 @@ export default function Home() {
           {visibleProducts.map((product) => {
             const inCart = cart.includes(product.title);
             return (
-              <div key={product.title} className="rounded-2xl bg-[#111] border border-white/10 p-3">
-                <button
-                  onClick={() => setOpenProductImage(product.title)}
-                  className="aspect-square w-full rounded-xl bg-black flex items-center justify-center text-4xl"
-                >
-                  {product.icon}
-                </button>
+ <div key={product.title} className="aspect-[1/1.16] flex flex-col rounded-2xl bg-[#111] border border-white/10 overflow-hidden">
+  <button
+    onClick={() => setOpenProductImage(product.title)}
+    className="aspect-[1/0.87] w-full bg-black flex items-center justify-center text-4xl"
+  >
+    {product.icon}
+  </button>
 
-                <h4 className="mt-3 font-semibold text-sm text-center">{product.title}</h4>
+  <div className="p-3 flex-1 flex flex-col">
+    <h4 className="font-semibold text-sm text-center">{product.title}</h4>
 
-                <button
-                  onClick={() => toggleCart(product.title)}
-                  className={`mt-3 w-full rounded-lg border py-2 text-xs font-semibold transition ${
-                    inCart ? "border-cyan-400 bg-cyan-400/10 text-cyan-400" : "border-cyan-400/40 text-cyan-400"
-                  }`}
-                >
-                  {inCart ? "Sepette ✓" : "Fiyat için sepete ekle"}
-                </button>
-              </div>
+    <button
+      onClick={() => toggleCart(product.title)}
+      className={`mt-3 w-full rounded-lg border py-2 text-xs font-semibold transition ${
+        inCart ? "border-cyan-400 bg-cyan-400/10 text-cyan-400" : "border-cyan-400/40 text-cyan-400"
+      }`}
+    >
+      {inCart ? "Sepette ✓" : "Fiyat için sepete ekle"}
+    </button>
+  </div>
+</div>
             );
           })}
         </div>
