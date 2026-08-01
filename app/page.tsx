@@ -236,7 +236,7 @@ export default function Home() {
     {product.icon}
   </button>
 
-<div className="px-3 pt-0 pb-1 flex-1 flex flex-col items-center justify-start gap-0.5">
+<div className="px-3 pt-1 pb-1 flex-1 flex flex-col items-center justify-start gap-0.5">
   <h4 className="font-semibold text-sm text-center">{product.title}</h4>
 
 <button
