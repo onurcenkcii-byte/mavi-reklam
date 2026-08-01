@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useRef } from "react";
 
 const phone = "905387110208";
 
@@ -105,7 +105,36 @@ export default function Home() {
   const [cart, setCart] = useState<string[]>([]);
   const [openProductImage, setOpenProductImage] = useState<string | null>(null);
 
+const whatsappRef = useRef<HTMLButtonElement>(null);
 
+const flyToCart = (e: React.MouseEvent<HTMLButtonElement>, imageSrc?: string) => {
+  if (!imageSrc || !whatsappRef.current) return;
+  const btnRect = e.currentTarget.getBoundingClientRect();
+  const cartRect = whatsappRef.current.getBoundingClientRect();
+
+  const flyer = document.createElement("img");
+  flyer.src = imageSrc;
+  flyer.style.position = "fixed";
+  flyer.style.left = `${btnRect.left}px`;
+  flyer.style.top = `${btnRect.top}px`;
+  flyer.style.width = "40px";
+  flyer.style.height = "40px";
+  flyer.style.borderRadius = "8px";
+  flyer.style.objectFit = "cover";
+  flyer.style.zIndex = "100";
+  flyer.style.transition = "all 0.7s cubic-bezier(0.55,0,1,0.45)";
+  flyer.style.pointerEvents = "none";
+  document.body.appendChild(flyer);
+
+  requestAnimationFrame(() => {
+    flyer.style.left = `${cartRect.left + cartRect.width / 2 - 20}px`;
+    flyer.style.top = `${cartRect.top + cartRect.height / 2 - 20}px`;
+    flyer.style.opacity = "0.3";
+    flyer.style.transform = "scale(0.3)";
+  });
+
+  setTimeout(() => flyer.remove(), 700);
+};
 
   const toggleCart = (title: string) => {
     setCart((prev) => (prev.includes(title) ? prev.filter((i) => i !== title) : [...prev, title]));
@@ -139,7 +168,7 @@ export default function Home() {
     style={{ background: "radial-gradient(circle, #0891b2 0%, transparent 70%)" }}
   />
       {/* HEADER */}
-      <header className="text-center px-5 py-3 ">
+      <header className="text-center px-5 py-3 opacity-0 animate-[fadeUpIn_0.6s_ease-out_forwards]">
         <div className="flex items-center justify-center gap-2">
           <img
 
@@ -155,14 +184,14 @@ export default function Home() {
       </header>
 
     {/* SABİT ANA GÖRSEL — 2:1 oran */}
-<section className="px-4 pt-2">
+<section className="px-4 pt-2 opacity-0 animate-[fadeUpIn_0.6s_ease-out_forwards]" style={{ animationDelay: "0.1s" }}>
   <div className="relative w-full rounded-3xl overflow-hidden border border-cyan-400/20">
     <img src="/hero.png" alt="Mavi Reklam" className="w-full h-auto" />
   </div>
 </section>
 
       {/* KATEGORİ FİLTRESİ — tek satırda, kaydırmasız, ikon+yazı kutucuk */}
-      <section className="px-4 pt-1 pb-2">
+      <section className="px-4 pt-1 pb-2 opacity-0 animate-[fadeUpIn_0.6s_ease-out_forwards]" style={{ animationDelay: "0.2s" }}>
         <div className="grid grid-cols-5 gap-1.5">
           {categories.map((cat) => {
             const active = activeCategory === cat;
@@ -198,7 +227,7 @@ export default function Home() {
       )}
 
       {/* ÜRÜNLER */}
-      <section className="px-5 pt-1">
+      <section className="px-5 pt-1 opacity-0 animate-[fadeUpIn_0.6s_ease-out_forwards]" style={{ animationDelay: "0.3s" }}>
        <div className="grid grid-cols-2 gap-2 items-start">
           {visibleProducts.map((product) => {
             const inCart = cart.includes(product.title);
@@ -219,7 +248,10 @@ export default function Home() {
   <h4 className="font-semibold text-sm text-center">{product.title}</h4>
 
 <button
-  onClick={() => toggleCart(product.title)}
+onClick={(e) => {
+  if (!inCart) flyToCart(e, product.image);
+  toggleCart(product.title);
+}}
   className={`w-full rounded-lg py-1.5 text-[11px] font-semibold transition flex items-center justify-center gap-1 active:scale-95 ${
     inCart ? "bg-cyan-400/10 text-cyan-300" : "bg-gradient-to-r from-cyan-400 to-blue-500 text-[#04232b]"
   }`}
@@ -327,7 +359,8 @@ export default function Home() {
 
       {/* SABİT WHATSAPP BUTONU — her zaman ekranın sağ altında (fixed) */}
       <button
-        onClick={sendWhatsApp}
+        ref={whatsappRef}
+onClick={sendWhatsApp}
         className="fixed bottom-20 right-5 z-50 bg-green-500 text-white pl-4 pr-5 py-3.5 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.45)] flex items-center gap-2 transition active:scale-95"
       >
         <WhatsAppGlyph />
