@@ -10,10 +10,11 @@ type Product = {
   title: string;
   category: Exclude<Category, "Tüm Ürünler">;
   icon: string;
+  image?: string;
 };
 
 const products: Product[] = [
-  { title: "Makam Bayrağı", category: "Ledbox Tabela", icon: "🏛️" },
+{ title: "Makam Bayrağı", category: "Ledbox Tabela", icon: "🏛️", image: "/makam-bayragi.png" },
   { title: "Yelken Bayrak", category: "Ledbox Tabela", icon: "⛵" },
   { title: "Masa Bayrakları", category: "Ledbox Tabela", icon: "🚩" },
   { title: "Kırlangıç Bayrak", category: "Ledbox Tabela", icon: "📐" },
@@ -230,11 +231,15 @@ export default function Home() {
             return (
  <div key={product.title} className="aspect-[1/1.16] flex flex-col rounded-2xl bg-[#111] border border-white/10 overflow-hidden">
   <button
-    onClick={() => setOpenProductImage(product.title)}
-    className="aspect-[1/0.87] w-full bg-black flex items-center justify-center text-4xl"
-  >
-    {product.icon}
-  </button>
+  onClick={() => setOpenProductImage(product.title)}
+  className="aspect-[1/0.87] w-full bg-white flex items-center justify-center text-4xl overflow-hidden"
+>
+  {product.image ? (
+    <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
+  ) : (
+    product.icon
+  )}
+</button>
 
 <div className="px-3 pt-1 pb-1 flex-1 flex flex-col items-center justify-start gap-0.5">
   <h4 className="font-semibold text-sm text-center">{product.title}</h4>
@@ -275,7 +280,15 @@ export default function Home() {
             className="relative w-full max-w-xs aspect-square rounded-2xl bg-[#111] border border-cyan-400/40 flex flex-col items-center justify-center gap-3"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="text-7xl">{products.find((p) => p.title === openProductImage)?.icon}</span>
+           {products.find((p) => p.title === openProductImage)?.image ? (
+  <img
+    src={products.find((p) => p.title === openProductImage)?.image}
+    alt={openProductImage}
+    className="w-full h-full object-contain rounded-2xl"
+  />
+) : (
+  <span className="text-7xl">{products.find((p) => p.title === openProductImage)?.icon}</span>
+)}
             <span className="text-gray-300 text-sm">{openProductImage}</span>
             <button
               onClick={() => setOpenProductImage(null)}
