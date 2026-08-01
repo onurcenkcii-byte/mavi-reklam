@@ -129,7 +129,7 @@ export default function Home() {
   });
 
   return (
-   <main className="relative min-h-screen bg-[#141416] text-white pb-24 overflow-x-hidden">
+   <main className="relative min-h-screen bg-[#0a0a0b] text-white pb-24 overflow-x-hidden">
   <div
     className="pointer-events-none fixed top-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-20 blur-[100px]"
     style={{ background: "radial-gradient(circle, #22d3ee 0%, transparent 70%)" }}
