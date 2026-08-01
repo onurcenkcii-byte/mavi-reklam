@@ -258,7 +258,12 @@ const resetTilt = (e: React.MouseEvent<HTMLDivElement>) => {
   className="aspect-[1/0.87] w-full bg-white flex items-center justify-center text-4xl overflow-hidden"
 >
   {product.image ? (
-    <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
+    <img
+      src={product.image}
+      alt={product.title}
+      draggable={false}
+      className="w-full h-full object-cover select-none pointer-events-none"
+    />
   ) : (
     product.icon
   )}
@@ -307,10 +312,11 @@ onClick={(e) => {
       onClick={(e) => e.stopPropagation()}
     >
       {products.find((p) => p.title === openProductImage)?.image ? (
-        <img
+      <img
           src={products.find((p) => p.title === openProductImage)?.image}
           alt={openProductImage}
-          className="max-h-[80vh] w-auto object-contain rounded-2xl"
+          draggable={false}
+          className="max-h-[80vh] w-auto object-contain rounded-2xl select-none pointer-events-none"
         />
       ) : (
         <span className="text-7xl">{products.find((p) => p.title === openProductImage)?.icon}</span>
