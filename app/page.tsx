@@ -14,22 +14,21 @@ type Product = {
 };
 
 const products: Product[] = [
-{ title: "Makam Bayrağı", category: "Ledbox Tabela", icon: "🏛️", image: "/makam-bayragi.png" },
-  { title: "Yelken Bayrak", category: "Ledbox Tabela", icon: "⛵" },
-  { title: "Masa Bayrakları", category: "Ledbox Tabela", icon: "🚩" },
-  { title: "Kırlangıç Bayrak", category: "Ledbox Tabela", icon: "📐" },
-  { title: "Ledbox Tabela", category: "Ledbox Tabela", icon: "💡" },
-  { title: "Branda - Vinil", category: "Dijital Baskı", icon: "🖼️" },
-  { title: "Folyo - Etiket", category: "Dijital Baskı", icon: "🎨" },
-  { title: "One Way Vizyon", category: "Dijital Baskı", icon: "🪟" },
-  { title: "Kartvizit", category: "Dijital Baskı", icon: "🪪" },
-  { title: "Broşür", category: "Dijital Baskı", icon: "📄" },
-  { title: "Kalem", category: "Promosyon Ürünler", icon: "🖊️" },
-  { title: "Çakmak", category: "Promosyon Ürünler", icon: "🔥" },
-  { title: "Kupa Bardak", category: "Promosyon Ürünler", icon: "☕" },
-  { title: "17'li Ahşap Kaide", category: "Ofis Ürünler", icon: "🏆" },
+  { title: "Makam Bayrağı", category: "Ledbox Tabela", icon: "🏛️", image: "/makam-bayragi.png" },
+  { title: "Yelken Bayrak", category: "Ledbox Tabela", icon: "⛵", image: "/yelken-bayrak.png" },
+  { title: "Masa Bayrakları", category: "Ledbox Tabela", icon: "🚩", image: "/masa-bayraklari.png" },
+  { title: "Kırlangıç Bayrak", category: "Ledbox Tabela", icon: "📐", image: "/kirlangic-bayrak.png" },
+  { title: "Ledbox Tabela", category: "Ledbox Tabela", icon: "💡", image: "/ledbox-tabela.png" },
+  { title: "Branda - Vinil", category: "Dijital Baskı", icon: "🖼️", image: "/branda.png" },
+  { title: "Folyo - Etiket", category: "Dijital Baskı", icon: "🎨", image: "/folyo.png" },
+  { title: "One Way Vizyon", category: "Dijital Baskı", icon: "🪟", image: "/oneway.png" },
+  { title: "Kartvizit", category: "Dijital Baskı", icon: "🪪", image: "/kartvizit.png" },
+  { title: "Broşür", category: "Dijital Baskı", icon: "📄", image: "/brosür.png" },
+  { title: "Kalem", category: "Promosyon Ürünler", icon: "🖊️", image: "/kalem.png" },
+  { title: "Çakmak", category: "Promosyon Ürünler", icon: "🔥", image: "/cakmak.png" },
+  { title: "Kupa Bardak", category: "Promosyon Ürünler", icon: "☕", image: "/kupa.png" },
+  { title: "17'li Ahşap Kaide", category: "Ofis Ürünler", icon: "🏆", image: "/ahsap-kaide.png" },
 ];
-
 const heroSlides = [
   { title: "Rollup", icon: "📜" },
   { title: "Yelken Bayrak", icon: "⛵" },
