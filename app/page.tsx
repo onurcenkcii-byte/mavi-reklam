@@ -14,10 +14,10 @@ type Product = {
 };
 
 const products: Product[] = [
-  { title: "Makam Bayrağı", category: "Ledbox Tabela", icon: "🏛️", image: "/makam-bayragi.png" },
-  { title: "Yelken Bayrak", category: "Ledbox Tabela", icon: "⛵", image: "/yelken-bayrak.png" },
-  { title: "Masa Bayrakları", category: "Ledbox Tabela", icon: "🚩", image: "/masa-bayraklari.png" },
-  { title: "Kırlangıç Bayrak", category: "Ledbox Tabela", icon: "📐", image: "/kirlangic-bayrak.png" },
+  { title: "Makam Bayrağı", category: "Ofis Ürünler", icon: "🏛️", image: "/makam-bayragi.png" },
+  { title: "Yelken Bayrak", category: "Dijital Baskı", icon: "⛵", image: "/yelken-bayrak.png" },
+  { title: "Masa Bayrakları", category: "Ofis Ürünler", icon: "🚩", image: "/masa-bayraklari.png" },
+  { title: "Kırlangıç Bayrak", category: "Ofis Ürünler", icon: "📐", image: "/kirlangic-bayrak.png" },
   { title: "Ledbox Tabela", category: "Ledbox Tabela", icon: "💡", image: "/ledbox-tabela.png" },
   { title: "Branda - Vinil", category: "Dijital Baskı", icon: "🖼️", image: "/branda.png" },
   { title: "Folyo - Etiket", category: "Dijital Baskı", icon: "🎨", image: "/folyo.png" },
