@@ -129,7 +129,15 @@ export default function Home() {
   });
 
   return (
-   <main className="min-h-screen bg-[#1a1a1d] text-white pb-24">
+   <main className="relative min-h-screen bg-[#141416] text-white pb-24 overflow-x-hidden">
+  <div
+    className="pointer-events-none fixed top-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full opacity-20 blur-[100px]"
+    style={{ background: "radial-gradient(circle, #22d3ee 0%, transparent 70%)" }}
+  />
+  <div
+    className="pointer-events-none fixed bottom-[10%] right-[-15%] w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]"
+    style={{ background: "radial-gradient(circle, #0891b2 0%, transparent 70%)" }}
+  />
       {/* HEADER */}
       <header className="text-center px-5 py-3 ">
         <div className="flex items-center justify-center gap-2">
