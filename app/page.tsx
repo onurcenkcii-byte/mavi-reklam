@@ -236,8 +236,8 @@ export default function Home() {
     {product.icon}
   </button>
 
-<div className="p-3 flex items-center justify-between gap-2">
-  <h4 className="font-semibold text-sm">{product.title}</h4>
+<div className="p-3 flex-1 flex items-start justify-between gap-2 pt-3">
+  <h4 className="font-semibold text-sm min-w-0 break-words">{product.title}</h4>
 
   <button
     onClick={() => toggleCart(product.title)}
