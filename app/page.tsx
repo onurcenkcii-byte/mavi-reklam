@@ -223,8 +223,8 @@ export default function Home() {
       )}
 
       {/* ÜRÜNLER */}
-      <section className="px-5 pt-4">
-        <div className="grid grid-cols-2 gap-4 items-start">
+      <section className="px-5 pt-1">
+       <div className="grid grid-cols-2 gap-2 items-start">
           {visibleProducts.map((product) => {
             const inCart = cart.includes(product.title);
             return (
