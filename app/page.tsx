@@ -97,7 +97,7 @@ function LogoMark() {
 }
 
 export default function Home() {
-  const [heroIndex, setHeroIndex] = useState(0);
+
   const [activeCategory, setActiveCategory] = useState<Category>("Tüm Ürünler");
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -105,12 +105,7 @@ export default function Home() {
   const [cart, setCart] = useState<string[]>([]);
   const [openProductImage, setOpenProductImage] = useState<string | null>(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setHeroIndex((i) => (i + 1) % heroSlides.length);
-    }, 2600);
-    return () => clearInterval(timer);
-  }, []);
+
 
   const toggleCart = (title: string) => {
     setCart((prev) => (prev.includes(title) ? prev.filter((i) => i !== title) : [...prev, title]));
@@ -151,42 +146,12 @@ export default function Home() {
         
       </header>
 
-      {/* KAYAN GÖRSEL ALANI — dikdörtgen, 2:1 oran */}
-      <section className="px-4 pt-1">
-        <div
-          className="relative w-full rounded-3xl overflow-hidden border border-cyan-400/20 bg-[#0d0d0d]"
-          style={{ aspectRatio: "2 / 1" }}
-        >
-          <div
-            className="flex h-full"
-            style={{
-              width: `${heroSlides.length * 100}%`,
-              transform: `translateX(-${heroIndex * (100 / heroSlides.length)}%)`,
-              transition: "transform 700ms cubic-bezier(0.55, 0.055, 0.675, 0.19)",
-            }}
-          >
-            {heroSlides.map((slide) => (
-              <div
-                key={slide.title}
-                className="h-full flex flex-col items-center justify-center gap-2"
-                style={{ width: `${100 / heroSlides.length}%` }}
-              >
-                <span className="text-5xl">{slide.icon}</span>
-                <span className="text-gray-300 text-sm font-medium">{slide.title}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1.5">
-            {heroSlides.map((_, i) => (
-              <span
-                key={i}
-                className={`w-1.5 h-1.5 rounded-full transition ${i === heroIndex ? "bg-cyan-400" : "bg-white/20"}`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* SABİT ANA GÖRSEL — 2:1 oran */}
+<section className="px-4 pt-2">
+  <div className="relative w-full rounded-3xl overflow-hidden border border-cyan-400/20">
+    <img src="/hero.png" alt="Mavi Reklam" className="w-full h-auto" />
+  </div>
+</section>
 
       {/* KATEGORİ FİLTRESİ — tek satırda, kaydırmasız, ikon+yazı kutucuk */}
       <section className="px-4 pt-1 pb-2">
