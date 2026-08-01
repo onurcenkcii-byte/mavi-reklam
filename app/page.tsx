@@ -236,17 +236,16 @@ export default function Home() {
     {product.icon}
   </button>
 
-<div className="p-3 flex-1 flex items-start justify-between gap-2 pt-3">
-  <h4 className="font-semibold text-sm min-w-0 break-words">{product.title}</h4>
+<div className="px-3 pt-3 pb-1 flex-1 flex flex-col items-center justify-start gap-2">
+  <h4 className="font-semibold text-sm text-center">{product.title}</h4>
 
   <button
     onClick={() => toggleCart(product.title)}
-    className={`shrink-0 flex items-center gap-1 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
+    className={`w-full rounded-lg border py-1.5 text-[11px] font-semibold transition ${
       inCart ? "border-cyan-400 bg-cyan-400/10 text-cyan-400" : "border-cyan-400/40 text-cyan-400"
     }`}
   >
-    {inCart ? "✓" : "Ekle"}
-    <Icon path="M20 8H4v12a1 1 0 001 1h14a1 1 0 001-1V8Z M2 8h20v3H2z" size={14} />
+    {inCart ? "Sepette ✓" : "Fiyat için sepete ekle"}
   </button>
 </div>
 </div>
