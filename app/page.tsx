@@ -224,7 +224,7 @@ export default function Home() {
 
       {/* ÜRÜNLER */}
       <section className="px-5 pt-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 items-start">
           {visibleProducts.map((product) => {
             const inCart = cart.includes(product.title);
             return (
@@ -236,17 +236,24 @@ export default function Home() {
     {product.icon}
   </button>
 
-<div className="px-3 pt-3 pb-1 flex-1 flex flex-col items-center justify-start gap-2">
+<div className="px-3 pt-0 pb-1 flex-1 flex flex-col items-center justify-start gap-0.5">
   <h4 className="font-semibold text-sm text-center">{product.title}</h4>
 
-  <button
-    onClick={() => toggleCart(product.title)}
-    className={`w-full rounded-lg border py-1.5 text-[11px] font-semibold transition ${
-      inCart ? "border-cyan-400 bg-cyan-400/10 text-cyan-400" : "border-cyan-400/40 text-cyan-400"
-    }`}
-  >
-    {inCart ? "Sepette ✓" : "Fiyat için sepete ekle"}
-  </button>
+<button
+  onClick={() => toggleCart(product.title)}
+  className={`w-full rounded-lg py-1.5 text-[11px] font-semibold transition flex items-center justify-center gap-1 ${
+    inCart ? "bg-cyan-400/10 text-cyan-400" : "text-cyan-400"
+  }`}
+>
+  {inCart ? (
+    "Sepette ✓"
+  ) : (
+    <>
+      Fiyat için sepete ekle
+    <Icon path="M20 8H4v12a1 1 0 001 1h14a1 1 0 001-1V8Z M2 8h20v3H2z" size={16} />
+    </>
+  )}
+</button>
 </div>
 </div>
             );
