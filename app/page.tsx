@@ -134,7 +134,7 @@ export default function Home() {
   });
 
   return (
-    <main className="min-h-screen bg-black text-white pb-24">
+   <main className="min-h-screen bg-[#1a1a1d] text-white pb-24">
       {/* HEADER */}
       <header className="text-center px-5 py-3 ">
         <div className="flex items-center justify-center gap-2">
