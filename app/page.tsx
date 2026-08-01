@@ -135,21 +135,7 @@ const flyToCart = (e: React.MouseEvent<HTMLButtonElement>, imageSrc?: string) =>
 
   setTimeout(() => flyer.remove(), 700);
 };
-const handleTilt = (e: React.MouseEvent<HTMLDivElement>) => {
-  const card = e.currentTarget;
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-  const rotateX = ((y - centerY) / centerY) * -6;
-  const rotateY = ((x - centerX) / centerX) * 6;
-  card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-};
 
-const resetTilt = (e: React.MouseEvent<HTMLDivElement>) => {
-  e.currentTarget.style.transform = "perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)";
-};
   const toggleCart = (title: string) => {
     setCart((prev) => (prev.includes(title) ? prev.filter((i) => i !== title) : [...prev, title]));
   };
@@ -246,13 +232,7 @@ const resetTilt = (e: React.MouseEvent<HTMLDivElement>) => {
           {visibleProducts.map((product) => {
             const inCart = cart.includes(product.title);
             return (
-<div
-  key={product.title}
-  onMouseMove={handleTilt}
-  onMouseLeave={resetTilt}
-  style={{ transition: "transform 0.15s ease-out" }}
-  className="flex flex-col rounded-2xl bg-[#111114] border border-white/10 overflow-hidden shadow-lg shadow-black/40 active:scale-[0.98]"
->
+<div key={product.title} className="flex flex-col rounded-2xl bg-[#111114] border border-white/10 overflow-hidden shadow-lg shadow-black/40 transition active:scale-[0.98]">
   <button
   onClick={() => setOpenProductImage(product.title)}
   className="aspect-[1/0.87] w-full bg-white flex items-center justify-center text-4xl overflow-hidden"
