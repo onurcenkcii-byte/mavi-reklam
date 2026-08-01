@@ -271,35 +271,33 @@ export default function Home() {
 
       {/* ÜRÜN GÖRSELİ BÜYÜTME (LIGHTBOX) */}
       {openProductImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-10"
-          onClick={() => setOpenProductImage(null)}
-        >
-          <div
-            className="relative w-full max-w-xs aspect-square rounded-2xl bg-[#111] border border-cyan-400/40 flex flex-col items-center justify-center gap-3"
-            onClick={(e) => e.stopPropagation()}
-          >
-           {products.find((p) => p.title === openProductImage)?.image ? (
-  <img
-    src={products.find((p) => p.title === openProductImage)?.image}
-    alt={openProductImage}
-    className="w-full h-full object-contain rounded-2xl"
-  />
-) : (
-  <span className="text-7xl">{products.find((p) => p.title === openProductImage)?.icon}</span>
-)}
-            <span className="text-gray-300 text-sm">{openProductImage}</span>
-            <button
-              onClick={() => setOpenProductImage(null)}
-              className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white"
-              aria-label="Kapat"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
+  <div
+    className="fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-10"
+    onClick={() => setOpenProductImage(null)}
+  >
+    <div
+      className="relative max-h-[80vh] flex items-center justify-center"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {products.find((p) => p.title === openProductImage)?.image ? (
+        <img
+          src={products.find((p) => p.title === openProductImage)?.image}
+          alt={openProductImage}
+          className="max-h-[80vh] w-auto object-contain rounded-2xl"
+        />
+      ) : (
+        <span className="text-7xl">{products.find((p) => p.title === openProductImage)?.icon}</span>
       )}
-
+      <button
+        onClick={() => setOpenProductImage(null)}
+        className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center text-black shadow-md"
+        aria-label="Kapat"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+)}
       {/* SIK SORULANLAR MODAL */}
       {faqOpen && (
         <div className="fixed inset-0 z-50 bg-black/85 flex items-end justify-center" onClick={() => setFaqOpen(false)}>
