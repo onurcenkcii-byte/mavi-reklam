@@ -160,12 +160,14 @@ export default function Home() {
             const active = activeCategory === cat;
             return (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`flex flex-col items-center justify-center gap-1 rounded-xl border py-2 px-0.5 ${
-                  active ? "border-cyan-400 bg-cyan-400/10 text-cyan-400" : "border-white/10 bg-[#0d0d0d] text-gray-400"
-                }`}
-              >
+  key={cat}
+  onClick={() => setActiveCategory(cat)}
+  className={`flex flex-col items-center justify-center gap-1 rounded-2xl border py-2.5 px-0.5 transition active:scale-95 ${
+    active
+      ? "border-cyan-400/60 bg-gradient-to-b from-cyan-400/20 to-cyan-400/5 text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.25)]"
+      : "border-white/10 bg-[#111114] text-gray-400"
+  }`}
+>
                 <Icon path={catIcons[cat]} size={16} />
                 <span className="text-[7.5px] leading-tight text-center font-semibold">{cat}</span>
               </button>
@@ -193,7 +195,7 @@ export default function Home() {
           {visibleProducts.map((product) => {
             const inCart = cart.includes(product.title);
             return (
- <div key={product.title} className="aspect-[1/1.16] flex flex-col rounded-2xl bg-[#111] border border-white/10 overflow-hidden">
+<div key={product.title} className="flex flex-col rounded-2xl bg-[#111114] border border-white/10 overflow-hidden shadow-lg shadow-black/40 transition active:scale-[0.98]">
   <button
   onClick={() => setOpenProductImage(product.title)}
   className="aspect-[1/0.87] w-full bg-white flex items-center justify-center text-4xl overflow-hidden"
@@ -210,8 +212,8 @@ export default function Home() {
 
 <button
   onClick={() => toggleCart(product.title)}
-  className={`w-full rounded-lg py-1.5 text-[11px] font-semibold transition flex items-center justify-center gap-1 ${
-    inCart ? "bg-cyan-400/10 text-cyan-400" : "text-cyan-400"
+  className={`w-full rounded-lg py-1.5 text-[11px] font-semibold transition flex items-center justify-center gap-1 active:scale-95 ${
+    inCart ? "bg-cyan-400/10 text-cyan-300" : "bg-gradient-to-r from-cyan-400 to-blue-500 text-[#04232b]"
   }`}
 >
   {inCart ? (
@@ -318,7 +320,7 @@ export default function Home() {
       {/* SABİT WHATSAPP BUTONU — her zaman ekranın sağ altında (fixed) */}
       <button
         onClick={sendWhatsApp}
-        className="whatsapp-shake fixed bottom-20 right-5 z-50 bg-green-500 text-white pl-4 pr-5 py-3.5 rounded-full shadow-[0_0_25px_rgba(34,197,94,0.5)] flex items-center gap-2"
+        className="fixed bottom-20 right-5 z-50 bg-green-500 text-white pl-4 pr-5 py-3.5 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.45)] flex items-center gap-2 transition active:scale-95"
       >
         <WhatsAppGlyph />
         <span className="text-sm font-semibold whitespace-nowrap">
