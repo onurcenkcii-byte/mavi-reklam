@@ -173,7 +173,7 @@ export default function Home() {
   className={`flex flex-col items-center justify-center gap-1 rounded-2xl border py-2.5 px-0.5 transition active:scale-95 ${
     active
       ? "border-cyan-400/60 bg-gradient-to-b from-cyan-400/20 to-cyan-400/5 text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.25)]"
-      : "border-white/10 bg-[#111114] text-gray-400"
+      : "border-white/10 bg-black text-gray-400"
   }`}
 >
                 <Icon path={catIcons[cat]} size={16} />
