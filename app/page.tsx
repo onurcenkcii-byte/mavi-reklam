@@ -21,7 +21,7 @@ const products: Product[] = [
   { title: "Ledbox Tabela", category: "Ledbox Tabela", icon: "💡", image: "/ledbox-tabela.png" },
   { title: "Branda - Vinil", category: "Dijital Baskı", icon: "🖼️", image: "/branda.png" },
   { title: "Folyo - Etiket", category: "Dijital Baskı", icon: "🎨", image: "/folyo.png" },
-  { title: "One Way Vizyon", category: "Dijital Baskı", icon: "🪟", image: "/oneway.png" },
+  { title: "One Way Vision", category: "Dijital Baskı", icon: "🪟", image: "/oneway.png" },
   { title: "Kartvizit", category: "Dijital Baskı", icon: "🪪", image: "/kartvizit.png" },
   { title: "Broşür", category: "Dijital Baskı", icon: "📄", image: "/brosür.png" },
   { title: "Kalem", category: "Promosyon Ürünler", icon: "🖊️", image: "/kalem.png" },
